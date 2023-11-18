@@ -1,5 +1,5 @@
 class ArchiveMenu(var archive: Archive,
-                  var counterMenuItems: Int = 0,
+                  override var counterMenuItems: Int = 0,
                   val mainMenu: MainMenu) : Menu(archive.notes, "Список заметок", "заметку") {
 
     override fun createMenuItem() {

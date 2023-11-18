@@ -4,16 +4,14 @@ abstract class Menu (
     private val menuType: String
         ) {
 
-    private var counterMenuItems: Int = 0
+    open var counterMenuItems: Int = 0
     var menuMap: MutableMap<Int, String> = mutableMapOf()
 
     private fun fillMenu() {
         clearMenu()
         addMenuItem("Создать ${menuType}")
-        if (items != null) {
-            for (item in items!!) {
-                addMenuItem(item.name)
-            }
+        items?.forEach { item ->
+            addMenuItem(item.name)
         }
         addMenuItem("Выход")
     }
@@ -29,6 +27,10 @@ abstract class Menu (
         fillMenu()
         printMenu()
         when (val chosenItem = TextEditor.chosenMenuItem(this)) {
+            -1 -> {
+                println("Введите, пожалуйста, номер выбранного пункта меню.")
+                showMenu()
+            }
             0 -> {
                 clearMenu()
                 createMenuItem()

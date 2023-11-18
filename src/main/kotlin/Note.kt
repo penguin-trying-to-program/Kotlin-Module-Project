@@ -5,16 +5,13 @@ class Note (
 
     companion object Factory {
         fun produce(): Note {
-            var name: String = ""
-            var text: String = ""
-
             println("Создание новой заметки")
 
             println("Введите, пожалуйста, название новой заметки.")
-            name = TextEditor.textInput()
+            val name: String = TextEditor.textInput()
 
             println("Введите, пожалуйста, текст заметки.")
-            text = TextEditor.textInput()
+            val text: String = TextEditor.textInput()
 
             return Note(name, text)
         }

@@ -1,5 +1,9 @@
-open class MainMenu(var archives: ArrayList<Archive>,
-               var counterMenuItems: Int = 0) : Menu(archives, "Список архивов", "архив" ) {
+class MainMenu(private var archives: ArrayList<Archive>,
+               override var counterMenuItems: Int = 0) : Menu(archives, "Список архивов", "архив" ) {
+
+    companion object {
+        const val exitMessage: String = "Всего доброго!"
+    }
 
     override fun createMenuItem() {
         archives.add(Archive.produce())
@@ -7,7 +11,7 @@ open class MainMenu(var archives: ArrayList<Archive>,
     }
 
     override fun exitMenu() {
-        println("Всего доброго!")
+        println(exitMessage)
     }
 
     fun showArchiveMenu(archive: Archive) {

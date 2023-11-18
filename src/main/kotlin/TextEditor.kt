@@ -18,13 +18,11 @@ class TextEditor {
             while (menuItem == null) {
                 try {
                     menuItem = scanner.nextInt()
-                    if (menuItem > menu.menuMap.size - 1 || menuItem < 0) {
-                        println("Введите, пожалуйста, номер выбранного пункта меню.")
-                        menu.showMenu()
+                    if ((menuItem >= menu.menuMap.size) || (menuItem < 0)) {
+                        return -1
                     }
                 } catch (e: Exception) {
-                    println("Введите, пожалуйста, номер выбранного пункта меню.")
-                    menu.showMenu()
+                    return -1
                 }
             }
             return menuItem
